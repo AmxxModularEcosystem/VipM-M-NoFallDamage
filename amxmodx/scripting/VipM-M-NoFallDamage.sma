@@ -21,7 +21,7 @@ public VipM_OnInitModules() {
 @OnPlayerFallDamage(const playerIndex) {
     new Float:dmg = GetHookChainReturn(ATYPE_FLOAT);
 
-    if (VipM_Modules_HasModule(MODULE_NAME, playerIndex)) {
+    if (!VipM_Modules_HasModule(MODULE_NAME, playerIndex)) {
         return HC_CONTINUE;
     }
 
