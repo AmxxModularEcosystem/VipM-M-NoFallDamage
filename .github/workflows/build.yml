@@ -13,7 +13,6 @@ on:
 
 env:
   PACKAGE_NAME: ExtendedMenuSystem
-  PARAMS_CONRTOLLER_TAG: 1.0.0-b4
   VIP_MODULAR_TAG: 5.0.0-b12
 
 jobs:
@@ -93,7 +92,6 @@ jobs:
         working-directory: amxmodx/scripting/
         env:
           REAPI_INCLUDE: ${{ env.REAPI_INCLUDE_PATH }}
-          PARAMS_CONRTOLLER_INCLUDE: ${{ env.PARAMS_CONRTOLLER_INCLUDE_PATH }}
           VIP_MODULAR_INCLUDE: ${{ env.VIP_MODULAR_INCLUDE_PATH }}
         run: |
           compile() {
@@ -107,7 +105,6 @@ jobs:
             amxxpc $sourcefile -o"$output_path" \
               -i"include" \
               -i"$REAPI_INCLUDE" \
-              -i"$PARAMS_CONRTOLLER_INCLUDE" \
               -i"$VIP_MODULAR_INCLUDE"
           }
           export -f compile
@@ -115,8 +112,6 @@ jobs:
           find . -type f -name "*.sma" -exec bash -c 'compile "$0"' {} \;
 
       - name: Move files
-        env:
-          STORE_READMY: ${{ env.STORE_READMY }}
         run: |
           mkdir -p publish/${{ env.PACKAGE_NAME }}/addons
           mv amxmodx/ publish/${{ env.PACKAGE_NAME }}/addons
