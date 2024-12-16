@@ -12,7 +12,7 @@ on:
     types: [published]
 
 env:
-  PACKAGE_NAME: ExtendedMenuSystem
+  PACKAGE_NAME: VipM-M-NoFallDamage
   VIP_MODULAR_TAG: 5.0.0-b12
 
 jobs:
@@ -67,7 +67,7 @@ jobs:
       - name: Setup VipModular includes
         env:
           REPO: ArKaNeMaN/amxx-VipModular-pub
-          # TAG: ${{ env.VIP_MODULAR_TAG }}
+          TAG: ${{ env.VIP_MODULAR_TAG }}
           OUTPUT_VAR_NAME: VIP_MODULAR_INCLUDE_PATH
         run: |
           mkdir -p dep/${REPO}
