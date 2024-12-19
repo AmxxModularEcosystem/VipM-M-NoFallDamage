@@ -15,7 +15,7 @@ public VipM_OnInitModules() {
 }
 
 @OnModuleActivated() {
-    RegisterHookChain(RG_CSGameRules_FlPlayerFallDamage, "@OnPlayerFallDamage", .post = false);
+    RegisterHookChain(RG_CSGameRules_FlPlayerFallDamage, "@OnPlayerFallDamage", .post = true);
 }
 
 @OnPlayerFallDamage(const playerIndex) {
